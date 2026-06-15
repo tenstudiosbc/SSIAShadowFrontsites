@@ -3,300 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SSIA: ShadowFront</title>
-
-<meta name="description" content="SSIA: ShadowFront - A future title in the SSIA Games franchise. Join the official pre-registration community today.">
+<meta name="description" content="SSIA: ShadowFront - Future TSBC Game">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-:root{
-    --bg:#05070c;
-    --card:#0d1220;
-    --card2:#12192c;
-    --accent:#4ea8ff;
-    --accent2:#8b5cf6;
-    --text:#ffffff;
-    --muted:#aab4c8;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-    font-family:'Inter',sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    overflow-x:hidden;
+font-family:Inter,sans-serif;
+background:#04070d;
+color:#fff;
+overflow-x:hidden;
 }
-
-/* Animated background */
 
 body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(78,168,255,.18), transparent 30%),
-        radial-gradient(circle at 80% 30%, rgba(139,92,246,.18), transparent 35%),
-        radial-gradient(circle at 50% 80%, rgba(78,168,255,.12), transparent 30%);
-    animation:bgMove 12s ease-in-out infinite alternate;
-    z-index:-2;
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%,rgba(47,124,255,.20),transparent 35%),
+radial-gradient(circle at 80% 30%,rgba(100,120,255,.15),transparent 35%),
+radial-gradient(circle at 50% 90%,rgba(47,124,255,.15),transparent 40%);
+animation:bgMove 12s ease-in-out infinite alternate;
+z-index:-2;
 }
 
 @keyframes bgMove{
-    from{
-        transform:scale(1);
-    }
-    to{
-        transform:scale(1.15);
-    }
+from{transform:scale(1)}
+to{transform:scale(1.15)}
 }
 
-.stars{
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    overflow:hidden;
-}
-
-.star{
-    position:absolute;
-    width:2px;
-    height:2px;
-    background:white;
-    border-radius:50%;
-    animation:floatStar linear infinite;
-    opacity:.7;
-}
-
-@keyframes floatStar{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-120vh);
-    }
+.gridbg{
+position:fixed;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+background-size:60px 60px;
+z-index:-1;
 }
 
 .container{
-    width:min(1200px,90%);
-    margin:auto;
+width:min(1200px,92%);
+margin:auto;
 }
 
-/* Hero */
-
 .hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:50px 0;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px 0;
+}
+
+.badge{
+display:inline-block;
+padding:10px 18px;
+border:1px solid rgba(255,255,255,.15);
+border-radius:999px;
+margin-bottom:25px;
+color:#8ebfff;
 }
 
 .logo{
-    width:min(700px,90%);
-    margin-bottom:30px;
-    animation:floatLogo 4s ease-in-out infinite;
-    filter:drop-shadow(0 0 30px rgba(78,168,255,.45));
+width:min(700px,92%);
+filter:drop-shadow(0 0 30px rgba(47,124,255,.5));
+animation:float 4s ease-in-out infinite;
 }
 
-@keyframes floatLogo{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-12px);
-    }
-}
-
-.tag{
-    color:var(--accent);
-    font-weight:700;
-    letter-spacing:2px;
-    margin-bottom:20px;
-}
-
-h1{
-    font-size:clamp(2rem,5vw,4rem);
-    margin-bottom:20px;
-}
-
-.subtitle{
-    max-width:800px;
-    margin:auto;
-    color:var(--muted);
-    line-height:1.8;
-    font-size:1.1rem;
-}
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-    margin-top:40px;
-}
-
-.btn{
-    text-decoration:none;
-    padding:16px 30px;
-    border-radius:14px;
-    font-weight:700;
-    transition:.3s;
-}
-
-.primary{
-    background:linear-gradient(135deg,var(--accent),var(--accent2));
-    color:white;
-}
-
-.primary:hover{
-    transform:translateY(-3px);
-}
-
-.secondary{
-    border:1px solid rgba(255,255,255,.15);
-    color:white;
-}
-
-.secondary:hover{
-    background:rgba(255,255,255,.05);
-}
-
-/* Sections */
-
-section{
-    padding:100px 0;
-}
-
-.section-title{
-    text-align:center;
-    font-size:2.5rem;
-    margin-bottom:20px;
-}
-
-.section-sub{
-    text-align:center;
-    color:var(--muted);
-    max-width:700px;
-    margin:auto auto 50px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:linear-gradient(180deg,var(--card),var(--card2));
-    border:1px solid rgba(255,255,255,.05);
-    border-radius:20px;
-    padding:30px;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card h3{
-    margin-bottom:15px;
-}
-
-.card p{
-    color:var(--muted);
-    line-height:1.7;
+@keyframes float{
+50%{transform:translateY(-10px)}
 }
 
 .status{
-    text-align:center;
+margin-top:25px;
+color:#8ebfff;
+font-weight:600;
 }
 
-.status-box{
-    max-width:800px;
-    margin:auto;
-    background:linear-gradient(180deg,var(--card),var(--card2));
-    padding:40px;
-    border-radius:24px;
-    border:1px solid rgba(255,255,255,.08);
+h1{
+font-size:clamp(2.2rem,5vw,5rem);
+margin:20px 0;
 }
 
-.status-badge{
-    display:inline-block;
-    padding:10px 18px;
-    border-radius:999px;
-    background:rgba(78,168,255,.15);
-    color:var(--accent);
-    margin-bottom:20px;
-    font-weight:700;
+.desc{
+max-width:850px;
+margin:auto;
+line-height:1.8;
+color:#b7c2d8;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:16px;
+flex-wrap:wrap;
+margin-top:35px;
+}
+
+.btn{
+padding:16px 28px;
+border-radius:14px;
+font-weight:700;
+text-decoration:none;
+transition:.25s;
+}
+
+.primary{
+background:linear-gradient(135deg,#2f7cff,#5d7cff);
+color:#fff;
+}
+
+.secondary{
+border:1px solid rgba(255,255,255,.15);
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+margin-top:60px;
+}
+
+.card{
+background:rgba(15,20,35,.75);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.08);
+padding:25px;
+border-radius:18px;
+}
+
+.card small{
+color:#8ca0c4;
+display:block;
+margin-bottom:10px;
+}
+
+.card strong{
+font-size:1.1rem;
+}
+
+section{
+padding:90px 0;
+}
+
+.title{
+font-size:2.4rem;
+text-align:center;
+margin-bottom:20px;
+}
+
+.sub{
+text-align:center;
+color:#b7c2d8;
+max-width:800px;
+margin:auto auto 50px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
 }
 
 footer{
-    text-align:center;
-    padding:40px 20px;
-    color:var(--muted);
-    border-top:1px solid rgba(255,255,255,.08);
+padding:40px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+color:#9fb0cf;
 }
-
-.reveal{
-    opacity:0;
-    transform:translateY(30px);
-    transition:all .8s ease;
-}
-
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
-}
-
 </style>
 </head>
 <body>
 
-<div class="stars" id="stars"></div>
+<div class="gridbg"></div>
 
 <section class="hero">
 <div class="container">
 
-<img
-class="logo"
-src="https://i.ibb.co.com/CKvFpqnk/20260303-162840.png"
-alt="SSIA ShadowFront Logo">
+<div class="badge">FUTURE TSBC GAME</div>
 
-<div class="tag">
-FUTURE TSBC GAME
-</div>
+<img class="logo" src="https://i.ibb.co.com/CKvFpqnk/20260303-162840.png" alt="SSIA ShadowFront Logo">
+
+<div class="status">STATUS: CONCEPT PHASE • DEVELOPMENT START: UNKNOWN</div>
 
 <h1>SSIA: ShadowFront</h1>
 
-<p class="subtitle">
-A future title in the SSIA Games franchise.
-Set within the SSIA Universe, ShadowFront follows the operations of the
-SSIA Fugitives Task Force (FGTF), a specialized unit dedicated to tracking
-and apprehending dangerous fugitives across Sierra Liudoxoya.
+<p class="desc">
+A future title in the SSIA Games franchise. Follow the operations of the SSIA Fugitives Task Force (FGTF) within the SSIA Universe. Active development has not yet begun as TSBC is currently focused on SSIA: Vanguard Chronicles.
 </p>
 
 <div class="buttons">
+<a class="btn primary" href="https://discord.gg/CWQKHTCPJp" target="_blank">PRE‑REGISTER NOW</a>
+<a class="btn secondary" href="#about">LEARN MORE</a>
+</div>
 
-<a class="btn primary"
-href="https://discord.gg/CWQKHTCPJp"
-target="_blank">
-PRE-REGISTER NOW
-</a>
-
-<a class="btn secondary"
-href="#about">
-LEARN MORE
-</a>
-
+<div class="stats">
+<div class="card"><small>PROJECT</small><strong>SSIA: ShadowFront</strong></div>
+<div class="card"><small>UNIT</small><strong>SSIA FGTF (Fugitives Task Force)</strong></div>
+<div class="card"><small>ENGINE</small><strong>Godot</strong></div>
+<div class="card"><small>RELEASE</small><strong>TBA</strong></div>
 </div>
 
 </div>
@@ -305,38 +219,27 @@ LEARN MORE
 <section id="about">
 <div class="container">
 
-<h2 class="section-title reveal">
-The Next Chapter of the SSIA Universe
-</h2>
+<h2 class="title">The Next Chapter of the SSIA Universe</h2>
 
-<p class="section-sub reveal">
-While SSIA: Vanguard Chronicles follows Jones Harrison and the Major Case Response Unit,
-ShadowFront explores a different perspective through the SSIA Fugitives Task Force.
+<p class="sub">
+While SSIA: Vanguard Chronicles follows Jones Harrison and the Major Case Response Unit, ShadowFront explores a different perspective through the SSIA Fugitives Task Force.
 </p>
 
 <div class="grid">
 
-<div class="card reveal">
+<div class="card">
 <h3>Shared Universe</h3>
-<p>
-Takes place in the same SSIA Universe as Vanguard Chronicles,
-with potential crossovers, recurring characters, and interconnected events.
-</p>
+<p>Connected to the wider SSIA Universe with potential crossover appearances and events.</p>
 </div>
 
-<div class="card reveal">
+<div class="card">
 <h3>FGTF Operations</h3>
-<p>
-Track fugitives, investigate leads, conduct manhunts, and execute
-high-risk apprehension operations across multiple nations.
-</p>
+<p>Track, investigate, pursue and apprehend fugitives across Sierra Liudoxoya.</p>
 </div>
 
-<div class="card reveal">
-<h3>Powered by Godot</h3>
-<p>
-Planned to be developed using the Godot Engine as part of the TSBC Games initiative.
-</p>
+<div class="card">
+<h3>Community First</h3>
+<p>Pre-registration currently takes place through the official Discord community.</p>
 </div>
 
 </div>
@@ -344,36 +247,19 @@ Planned to be developed using the Godot Engine as part of the TSBC Games initiat
 </div>
 </section>
 
-<section class="status">
+<section>
 <div class="container">
 
-<h2 class="section-title reveal">
-Development Status
-</h2>
+<h2 class="title">Project Roadmap</h2>
 
-<div class="status-box reveal">
+<div class="grid">
 
-<div class="status-badge">
-CONCEPT PHASE
-</div>
-
-<p style="line-height:1.9;color:var(--muted);">
-SSIA: ShadowFront is currently in the concept phase.
-Active development has not yet begun as TSBC is currently focused on
-SSIA: Vanguard Chronicles.
-
-By pre-registering, you will join the official SSIA: ShadowFront Discord
-community and receive future development updates, announcements,
-and community news.
-</p>
-
-<br><br>
-
-<a class="btn primary"
-href="https://discord.gg/CWQKHTCPJp"
-target="_blank">
-JOIN PRE-REGISTRATION
-</a>
+<div class="card">✓ Concept Created</div>
+<div class="card">✓ Discord Server Opened</div>
+<div class="card">✓ Official Website</div>
+<div class="card">○ Active Development</div>
+<div class="card">○ Character Reveal</div>
+<div class="card">○ Gameplay Reveal</div>
 
 </div>
 
@@ -383,50 +269,6 @@ JOIN PRE-REGISTRATION
 <footer>
 © 2026 TSBC Games • SSIA: ShadowFront
 </footer>
-
-<script>
-
-/* stars */
-
-const stars=document.getElementById('stars');
-
-for(let i=0;i<120;i++){
-
-const star=document.createElement('div');
-
-star.classList.add('star');
-
-star.style.left=Math.random()*100+'%';
-star.style.top=Math.random()*100+'%';
-
-star.style.animationDuration=
-(20+Math.random()*40)+'s';
-
-stars.appendChild(star);
-
-}
-
-/* reveal animation */
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add('active');
-
-}
-
-});
-
-},{threshold:.15});
-
-document.querySelectorAll('.reveal').forEach(el=>{
-observer.observe(el);
-});
-
-</script>
 
 </body>
 </html>
